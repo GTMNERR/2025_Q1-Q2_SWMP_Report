@@ -1,0 +1,113 @@
+---
+title: "Maintenance Notes"
+link-external-icon: true
+link-external-newwindow: true
+execute:
+  warning: false
+  error: false
+filters:
+  - lightbox
+lightbox: auto
+---
+## Water Quality
+### Sonde and Sensor Failures
+
+Two sonde failures and multiple sensor failures (3 Wiped conductivity/ temperature CT sensors) occurred during the first quarter. The data sondes were sent in for repairs or taken out of rotation and the sensors were replaced since they are no longer covered under warranty.
+
+In March, there was an SD card failure prior to sonde deployment at San Sebastian (Flounder SN: 13K102679). Since failure occurred prior to deployment, data were not collected for the deployment duration (March 7, 2024 10:00 -- April 9, 2024 11:30), and post deployment procedures were not conducted. The data sonde was taken out of rotation and sent to Xylem/YSI for repairs. 
+
+There were two sonde failures and one CT sensor failure in the third quarter. Both sonde failures occurred at Pellicer Creek. The first was on July 20th and was possibly caused by a lightning strike. The sonde (Heron) lost communication and post deployment procedures were conducted on another data sonde. On July 30th, data sonde Triton experienced an SD card failure after only 24 hours of deployment. Both sonde failures resulted in missing data. The Fort Matanzas data sonde Marlin had a CT failure in July due to a buildup of salt on the electrodes. The sensor was taken out of rotation.
+
+### Sonde and Sensor Malfunctions
+
+#### Wiper Brush Issues
+
+The wiper brush fell off on the following deployments:
+
+Pine Island:
+
+-   January 10 - February 8, 2024 (Irma SN: 20H100465) central wiper SN: 23G100412
+-   October 1 - November 6, 2024 (Flounder SN: 12L101354) central wiper SN: 12L101282
+
+San Sebastian:
+
+-   December 12 - January 10, 2024 (Megalops SN: 16J102351) central wiper SN: 22A106852
+-   February 8 - March 7, 2024 (Megalops SN: 16J102351) central wiper SN: 22A106852
+-   September 19 - October 1, 2024 SS (Megalops SN:16J102351) central wiper SN: 22A106852
+-   October 1 - November 4, 2024 (Dorian SN: 20H100466) central wiper SN: 13K100773)
+-   November 4 - December 3, 2024 (Megalops SN: 16J102351) central wiper SN: 22A106852
+
+Fort Matanzas:
+
+-   May 25 - June 4, 2024 (Nautilus SN: 13H102686) central wiper SN:20H100789
+
+#### Depth Dropouts
+
+The depth sensor dropped from deployment of sonde Egret (SN: 15E101700) from December 12, 2023 -- January 10, 2024 at Pellicer Creek. This resulted in a broken deployment file at December 17, 2023 04:30 in which the depth sensor was completely missing from the second half of this split file. During post-calibrations, the battery compartment was reset (removed battery cap and replaced it) and the depth sensor was reconnected to the data sonde. Post-calibration values were able to be collected and a calibration test of the sensor showed that it stabilized, allowing the sonde to stay in rotation.
+
+Wiped CT sensor failed at Fort Matanzas on April 30th and caused continual depth dropouts until retrieved on May 9, 2024. Additionally, a wiped CT sensor malfunctioned around May 25th and caused the depth sensor to fail post deployment checks on June 4, 2024. The central wiper brush fell also fell off during the deployment.
+
+#### Broken Data Files
+
+San Sebastian, Fort Matanzas, and Pellicer Creek experienced broken data files. The data files were broken into many different files upon download. Staff initially thought that the central wipers were causing the issues due the sensor data reporting not a number (NANs) during the issues; however, staff are now beginning to suspect the cause of the broken files are due to faulty wiped conductivity/temperature probes, but further investigation needs to be conducted. 
+
+The following is a list of deployments that experienced broken data files and all of the wiped CT probes have been pulled for evaluation:
+
+-   PC (Egret SN: 15E101700) 12/12/2023, 11:15 -- 01/10/2024, 12:00
+-   SS (Flounder SN: 12L101354) 01/10/2024 12:15 -- 02/08/2024 10:15 
+-   FM (Marlin SN: 13E101372) 03/07/2024 09:30 -- 04/09/2024 10:15
+-   SS (Dorian SN: 20H100466) 05/19/2024 19:30 -- 05/19/2024 10:00
+-   FM (Egret SN: 15E101700) 11/4/2024 12:15 -- 12/10/2024 13:45
+-   PI (Flounder SN: 12L101354) 12/3/2024 15:00 -- 01/14/2025 13:45
+
+#### Faulty Batteries
+
+Pellicer Creek's telemetry station and sonde, Egret (SN: 15E101700), experience battery issues during the first quarter of 2024. The PC telemetry station was reporting low battery voltage in February and March. On April 2, 2024 research staff successfully replaced the battery at the telemetry station. Staff confirmed that the power supply elevated after the exchange.
+
+In January 2024, the battery voltage on Pellicer Creek sonde, Egret, increased during the deployment, which is uncommon. This same battery issue repeated itself each time this sonde was deployed in February and March. During the sonde calibration in early April, KOR software notified the technician that the sonde’s internal RTC battery, aka coin cell, had low voltage. Staff called Xylem/YSI tech support and were told to send the sonde in for repairs.
+
+Flounder (SN: 12L101354) sonde, deployed at Pine Island, experienced a battery failure for the 12/03/2024 - 01/14/2025 deployment; possibly attributed to the Conductivity/Temperature (C/T) sensor pin breaking off inside the data sonde bulkhead.
+
+#### Wiped Conductivity and Temperature Sensor Issues
+
+The wiped C/T sensor (SN: 20D101823) in Flounder at Pine Island had a pin corrode and break off during the deployment, leading to missing data for temperature, specific conductivity, and salinity from December 7, 2024 at 23:45– January 14, 2025 at 13:45, with all data missing from January 11, 2025 at 15:15- January 14, 2025 due to battery failure potentially attributable to this sensor malfunction. 
+The same pin corrosion occurred on the wiped C/T sensor (SN: 24H100098) at Fort Matanzas on Marlin (SN: 13E101372)
+
+
+#### Chlorophyll Sensor Issues
+
+Several chlorophyll sensors in Q2 and Q3 deployed at all four stations calibrated with a yellow QC score. The yellow QC score means that the sensor gain or offset is near the threshold of calibration limits. The sensor may experience sensor drift. After performing a factory reset calibration and making new standard, it was determined that the sensors must be replaced.
+
+#### Dissolved Oxygen Sensor Issues
+
+The dissolved oxygen sensor (SN: 16J100260), deployed on Egret (SN: 15E101700) data sonde, failed at Fort Matanzas on 12/06/2024 00:45 thus resulting in rejected and missing data.
+
+### KOR Software Issues
+
+In April, both San Sebastian and Fort Matanzas sondes were freezing the KOR software each time a central wiper sensor was connected to the sondes. After speaking with Xylem/YSI tech support it was recommended to update KOR software to version 1.4.0. This software update resulted in changes to the data file structure and thus compatibility issues when uploading raw data to the CDMO website. The CDMO is currently working on a fix but until then data files are sent to Amber at the CDMO for modification and data upload.
+
+On October 23, 2024, we tried to revert to KOR version 1.3.5 as requested by the CDMO. Unfortunately, the downgrade to KOR version 1.3.5 crashed the laboratory computer again and we had to upgrade KOR back to version 1.4.0. Files will continue to be sent to Amber at the CDMO for modification and data upload.
+
+### Leveling
+
+The GTM research staff completed the annual task of measuring the elevation of the sonde in Pellicer Creek on April 15 - 16, 2024. The team measured the change in height from a reference benchmark and three positions on the piling holding the sonde. The orthometric height of the sonde tube pin position is used as the station offset when calibrating the depth sensor for the sonde. The orthometric heights of the positions can also be used to determine if the piling holding the sonde is moving vertically.  
+
+Sonde housing (deployment tube) and depth elevation were measured at Pine Island on December 3, 2024.
+
+## Weather Station
+
+On September 10, 2024, the temperature/relative humidity sensor tip was changed because of heavy rust on the screen. The entire sensor was replaced for Q4.
+
+### Station Upgrades
+
+The GTMNERR MET station received an upgraded data logger and sensors in Q4. On November 13, 2024, a new CR1000x data logger was installed. This data logger replaced the CR1000. A new TX325 transmitter, BaroVue 10 barometric sensor, and battery were also installed. All existing sensors were rewired into the CR1000x and the program file that runs the station was updated to work with the new data logger, transmitter, and sensors. 
+
+### Sensor Malfunctions
+
+The temperature/relative humidity sensor malfunctioned intermittently between 08/12/2024 18:45 – 11/13/2024 10:15. Sensor recorded very high maximum temperature readings. The elevated values were rejected during Q4 review and the data collected in between the rejected values appear to fit conditions.
+
+The MET station has also been experiencing elevated night-time PAR values. The elevated readings occur intermittently throughout the year, but the frequency was greater in Q4. The cause of the elevated readings is unknown. Sometimes moisture intrusion can cause elevated readings. The wires were chewed on by a critter, so it is possible that moisture is getting inside the sensor cable. Plans are to replace the sensor in Q1 of 2025.
+
+After the CR1000x installation on November 13, 2024, the station was not recording accurate wind direction data. After reaching out to Campbell Scientific it was suggested that we move the green wire from 2H to 2L. The wire was changed and the station started recording wind direction data. The wind speed data was not affected.
+
+Lastly, the MET program that was uploaded to the station on November 13, 2024, had the incorrect switch closure for the rain gauge. The station did not record rainfall data beginning on 11/13/2024 12:30 and extending through January 28, 2025.
