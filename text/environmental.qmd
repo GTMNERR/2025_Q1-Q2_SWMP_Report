@@ -49,8 +49,8 @@ Rainfall in January and September – November brought salinity levels lower tha
 #| echo: false
 #| fig.cap: Rainfall at the Pellicer Creek weather station. See Maintenance Notes (8.2.2) for details on missing data.
 #| fig.subcap:
-#|    - "Quarterly total precipitation for 2024."
-#|    - "Monthly total precipitation for 2024."
+#|    - "Quarterly total precipitation for 2025."
+#|    - "Monthly total precipitation for 2025."
 #|    - "Daily rainfall totals for days with greater than 1mm per day."
 #|    - "Hourly rainfall intensity counts by category per month."
 #| layout-ncol: 2
@@ -68,7 +68,7 @@ MET |>
                                                     'Apr-Jun', 
                                                     'Jul-Sep', 
                                                     'Oct-Dec'),
-                                   hist_rng = c(2003,2024),
+                                   hist_rng = c(2003,2025),
                                    hist_avg = TRUE,
                                    converted = F) + 
   theme(axis.text.x = element_text(angle = 45,
@@ -79,7 +79,7 @@ MET |>
 ## MONTHLY ----
 
 MET |> 
-  filter(datetimestamp > '2024-01-01 00:15'& datetimestamp < '2025-01-01 00:00') %>%
+  filter(datetimestamp > '2025-01-01 00:15'& datetimestamp < '2025-07-01 00:00') %>%
   # mutate(date = as.Date(datetimestamp),
   #        month = lubridate::month(date, label = T)) %>% 
   mutate(date = lubridate::date(datetimestamp),
@@ -108,7 +108,7 @@ MET |>
 fun_in <- function(x) sum(x, na.rm = TRUE)
 
 MET |> 
-  filter(datetimestamp > '2024-01-01 00:15' & datetimestamp < '2025-01-01 00:00') %>%
+  filter(datetimestamp > '2025-01-01 00:15' & datetimestamp < '2025-07-01 00:00') %>%
   aggreswmp(by = "days", FUN = fun_in, params = "totprcp") %>% 
   filter(totprcp >= 1) %>% 
   mutate(date = as.Date(datetimestamp),
@@ -145,7 +145,7 @@ MET |>
 fun_in <- function(x) sum(x, na.rm = TRUE)
 
 MET |>
-  filter(datetimestamp > '2024-01-01 00:15'& datetimestamp < '2025-01-01 00:00') %>% 
+  filter(datetimestamp > '2025-01-01 00:15'& datetimestamp < '2025-07-01 00:00') %>% 
   aggreswmp(by = "hours", FUN = fun_in, params = "totprcp") %>% 
   rename(intensity = totprcp) %>% 
   mutate(date = lubridate::date(datetimestamp),
@@ -183,7 +183,7 @@ MET |>
 #| tbl-cap: "Top five highest monthly rainfall totals."
 
 # MET %>% 
-#   (filter(datetimestamp < '2025-01-01 00:00'))
+#   (filter(datetimestamp < '2026-01-01 00:00'))
 
 Monthly_PRCP<-aggreswmp(MET, 'months', function(x) sum(x, na.rm = T), 
 params = 'totprcp')
@@ -211,7 +211,7 @@ TopValues %>%
 #| fig.cap: Rainfall at the Pellicer Creek weather station.
 #| fig.subcap:
 #|    - "Total precipitation for September 2002-2024."
-#|    - "Monthly total precipitation 2002-2024."
+#|    - "Monthly total precipitation 2002-2025."
 #|    - "Annual precipitation totals Jan 2002-Dec 2024."
 #|    - "Annual precipitation totals Jan 2002-Dec 2024."
 #| layout-ncol: 2
@@ -322,7 +322,7 @@ The plot below is interactive. Clicking on elements in the legend (months) will 
 
 ggplotly(
 MET %>% 
-  filter(datetimestamp > '2024-01-01 00:15'& datetimestamp < '2024-12-31 23:46') %>% 
+  filter(datetimestamp > '2025-01-01 00:15'& datetimestamp < '2025-07-01 00:00') %>% 
   select(datetimestamp, totpar) %>% 
   mutate(month = lubridate::month(datetimestamp, label = T), 
          day = lubridate::day(datetimestamp),
@@ -355,7 +355,7 @@ Air and water temperatures are presented as daily averages (blue line) with hist
 #| echo: false
 #| fig.cap: "Historical daily range of air temperature at the SWMP weather station with current year daily average overlaid in blue."
 
-  historical_daily_range(MET, param = 'atemp', target_yr = 2024) + labs(x = "", y = "Air Temperature (\u00B0C)")
+  historical_daily_range(MET, param = 'atemp', target_yr = 2025) + labs(x = "", y = "Air Temperature (\u00B0C)")
   
 ```
 
@@ -370,13 +370,13 @@ Air and water temperatures are presented as daily averages (blue line) with hist
 #|    - "Pellicer Creek"
 #| layout-ncol: 2
 
-historical_daily_range(pi, param = 'temp', target_yr = 2024) + labs(x = "", y = "Water Temperature (\u00B0C)")
+historical_daily_range(pi, param = 'temp', target_yr = 2025) + labs(x = "", y = "Water Temperature (\u00B0C)")
 
-historical_daily_range(ss, param = 'temp', target_yr = 2024) + labs(x = "", y = "Water Temperature (\u00B0C)")
+historical_daily_range(ss, param = 'temp', target_yr = 2025) + labs(x = "", y = "Water Temperature (\u00B0C)")
 
-historical_daily_range(fm, param = 'temp', target_yr = 2024) + labs(x = "", y = "Water Temperature (\u00B0C)")
+historical_daily_range(fm, param = 'temp', target_yr = 2025) + labs(x = "", y = "Water Temperature (\u00B0C)")
 
-historical_daily_range(pc, param = 'temp', target_yr = 2024) + labs(x = "", y = "Water Temperature (\u00B0C)")
+historical_daily_range(pc, param = 'temp', target_yr = 2025) + labs(x = "", y = "Water Temperature (\u00B0C)")
 ```
 
 ### Salinity
@@ -392,13 +392,13 @@ historical_daily_range(pc, param = 'temp', target_yr = 2024) + labs(x = "", y = 
 #|    - "Pellicer Creek"
 #| layout-ncol: 2
 
-historical_daily_range(pi, param = 'sal', target_yr = 2024)
+historical_daily_range(pi, param = 'sal', target_yr = 2025)
 
-historical_daily_range(ss, param = 'sal', target_yr = 2024)
+historical_daily_range(ss, param = 'sal', target_yr = 2025)
 
-historical_daily_range(fm, param = 'sal', target_yr = 2024)
+historical_daily_range(fm, param = 'sal', target_yr = 2025)
 
-historical_daily_range(pc, param = 'sal', target_yr = 2024)
+historical_daily_range(pc, param = 'sal', target_yr = 2025)
 ```
 
 
