@@ -16,7 +16,7 @@ library(here)
 
 source(here::here('R', '00_loadpackages.R'))
 source(here::here('R', '02.1_load_wrangle_NUT.R'))
-# source(here::here('R', '02.2_load_wrangle_WQ-and-MET.R'))
+source(here::here('R', '02.2_load_wrangle_WQ-and-MET.R'))
 source(here::here('R', '03_graph_fxns.R'))
 
 load(here('output','data', 'pi_wq.Rdata'))
@@ -70,15 +70,15 @@ Pine Island orthophosphate concentrations were relatively stable from April to S
 
 pi |> 
   filter(do_mgl > 0) |> 
-historical_daily_range(param = 'do_mgl', target_yr = 2024, criteria = 2)
+historical_daily_range(param = 'do_mgl', target_yr = 2025, criteria = 2)
 
-historical_daily_range(ss, param = 'do_mgl', target_yr = 2024, criteria = 2)
+historical_daily_range(ss, param = 'do_mgl', target_yr = 2025, criteria = 2)
 
-historical_daily_range(filter(fm, do_mgl > 0), param = 'do_mgl', target_yr = 2024, criteria = 2)
+historical_daily_range(filter(fm, do_mgl > 0), param = 'do_mgl', target_yr = 2025, criteria = 2)
 
 pc |>
   filter(do_mgl < 20 & do_mgl > 0) |> 
-  historical_daily_range(param = 'do_mgl', target_yr = 2024, criteria = 2)
+  historical_daily_range(param = 'do_mgl', target_yr = 2025, criteria = 2)
 
 ```
 
@@ -90,10 +90,10 @@ pc |>
 #| fig-cap: Continuous dissolved oxygen at Pine Island with monthly average overlaid in solid gray line. Conditions are indicated as good when above 5 mg/L, fair between 2 and 5 mg/L, and poor if less than 2 mg/L.
 #| fig.subcap:
 #|     - "For the past five years"
-#|     - "For the current 2024 year"
+#|     - "For the current 2025 year"
 #| layout-ncol: 2
 
-threshold_criteria_plot(pi, param = 'do_mgl', rng = c(2019, 2024), 
+threshold_criteria_plot(pi, param = 'do_mgl', rng = c(2020, 2025), 
                         thresholds = c(2,5),
                         threshold_labs = c('Poor', 'Fair', 'Good'), 
                         monthly_smooth = TRUE, 
@@ -101,7 +101,7 @@ threshold_criteria_plot(pi, param = 'do_mgl', rng = c(2019, 2024),
   theme(axis.text = element_text(color = "black", size = 12),
         axis.title.y = element_text(size = 14))
 
-threshold_criteria_plot(pi, param = 'do_mgl', rng = c(2024, 2024), 
+threshold_criteria_plot(pi, param = 'do_mgl', rng = c(2025, 2025), 
                         thresholds = c(2,5),
                         threshold_labs = c('Poor', 'Fair', 'Good'), 
                         monthly_smooth = TRUE, 
@@ -119,10 +119,10 @@ threshold_criteria_plot(pi, param = 'do_mgl', rng = c(2024, 2024),
 #| fig.cap: Continuous dissolved oxygen at Pellicer Creek with monthly average overlaid in solid gray line. Conditions are indicated as good when above 5 mg/L, fair between 2 and 5 mg/L, and poor if less than 2 mg/L.
 #| fig.subcap:
 #|     - "For the past five years"
-#|     - "For the current 2024 year"
+#|     - "For the current 2025 year"
 #| layout-ncol: 2
     
-threshold_criteria_plot(pc, param = 'do_mgl', rng = c(2019, 2024), 
+threshold_criteria_plot(pc, param = 'do_mgl', rng = c(2020, 2025), 
                         thresholds = c(2,5),
                         threshold_labs = c('Poor', 'Fair', 'Good'), 
                         monthly_smooth = TRUE, 
@@ -132,7 +132,7 @@ threshold_criteria_plot(pc, param = 'do_mgl', rng = c(2019, 2024),
 
 
 
-threshold_criteria_plot(pc, param = 'do_mgl', rng = c(2024, 2024), 
+threshold_criteria_plot(pc, param = 'do_mgl', rng = c(2025, 2025), 
                         thresholds = c(2,5),
                         threshold_labs = c('Poor', 'Fair', 'Good'), 
                         monthly_smooth = TRUE, 
@@ -209,7 +209,7 @@ boxplot_currentyear(station = "gtmpcnut",
 ```{r}
 #| label: fig-chla-agm
 #| echo: false
-#| fig.cap: Annual geometric means of monthly chlorophyll *a* at each SWMP water quality station. Horizontal dashed blue line indicates the state threshold, as found in F.A.C 62-302.530. Values exceeding the threshold are indicated in red. The 2024 value is based upon data to date and does not equal an entire year of data.
+#| fig.cap: Annual geometric means of monthly chlorophyll *a* at each SWMP water quality station. Horizontal dashed blue line indicates the state threshold, as found in F.A.C 62-302.530. Values exceeding the threshold are indicated in red. The 2025 value is based upon data to date and does not equal an entire year of data.
 #| fig.subcap:
 #|    - "Pine Island"
 #|    - "San Sebastian"

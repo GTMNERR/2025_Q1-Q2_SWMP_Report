@@ -1,6 +1,6 @@
 # Citation {.unnumbered}
 
-Petrinec, K., K. Villinger, S. D. Kimmel, M. Howkins, and N. Dix. 2024. Guana Tolomato Matanzas National Estuarine Research Reserve 2024 Quarterly System-Wide Monitoring Program Report. Guana Tolomato Matanzas National Estuarine Research Reserve, Ponte Vedra Beach, FL
+Petrinec, K., K. Villinger, S. D. Kimmel, M. Howkins, and N. Dix. 2025. Guana Tolomato Matanzas National Estuarine Research Reserve 2025 Quarterly System-Wide Monitoring Program Report. Guana Tolomato Matanzas National Estuarine Research Reserve, Ponte Vedra Beach, FL
 
 ```{=openxml}
 <w:p><w:r><w:br w:type="page"/></w:r></w:p>

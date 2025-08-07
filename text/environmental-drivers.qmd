@@ -50,7 +50,7 @@ Using duration of wind directions between 0-100 degrees for greater than 24-hrs 
 ```{r}
 #| label: tbl-hurricanes
 #| echo: false
-#| tbl-cap: "Extreme storms that affected the GTMNERR from September 2002-December 2024. Asterisks (*) represent storms listed in NOAA’s Historic Hurricane Tracker as coming within 60 kilometers of the GTMNERR. Cardinal directions for wind were converted using a 16-point meteorological compass found at https://planetcalc.com/3590/. H = Hurricane, TS = Tropical Storm."
+#| tbl-cap: "Extreme storms that affected the GTMNERR from September 2002-June 2025. Asterisks (*) represent storms listed in NOAA’s Historic Hurricane Tracker as coming within 60 kilometers of the GTMNERR. Cardinal directions for wind were converted using a 16-point meteorological compass found at https://planetcalc.com/3590/. H = Hurricane, TS = Tropical Storm."
 
 storms <- readxl::read_xlsx(here::here('data', 
                                       'storms_table_for_Quarterly_Report.xlsx'),
@@ -88,7 +88,7 @@ MET %>%
 ```{r}
 #| label: fig-medianwspd
 #| echo: false
-#| fig-cap: "Daily median wind speeds observed in 2024 at the Pellicer Creek weather station. Winds from the north-northeast and east-northeast directions are identified with color, all other values are gray."
+#| fig-cap: "Daily median wind speeds observed in 2025 at the Pellicer Creek weather station. Winds from the north-northeast and east-northeast directions are identified with color, all other values are gray."
 
 fun_in <- function(x) median(x, na.rm = TRUE)
 # 
@@ -101,7 +101,7 @@ fun_in <- function(x) median(x, na.rm = TRUE)
 # confint(l.model, level = 0.95)
 
 MET %>% 
-  filter(datetimestamp > '2024-01-01 00:15') %>% 
+  filter(datetimestamp > '2025-01-01 00:15') %>% 
   aggreswmp(by = "days", FUN = fun_in, params = c('wspd', 'maxwspd', 'wdir')) %>%
   mutate(compass = cimir::cimis_degrees_to_compass(wdir)) %>%
   # filter(wspd > 2.278 & maxwspd > 4.03469) %>%
@@ -233,15 +233,15 @@ MET_wind_long %>%
 ```{r}
 #| label: fig-winds-monthly
 #| echo: false
-#| fig.cap: Monthly wind speed and direction from the Pellicer Creek weather station for January - December 2024.
+#| fig.cap: Monthly wind speed and direction from the Pellicer Creek weather station for January - June 2025.
 #| fig.subcap:
 #|    - "Monthly wind speeds"
 #| layout-ncol: 1
 
 MET_wind_q1 <- MET %>% 
   filter(between(datetimestamp, 
-                 as.POSIXct("2024-01-01 00:00:00"), 
-                 as.POSIXct("2025-01-01 00:00:00")))
+                 as.POSIXct("2025-01-01 00:00:00"), 
+                 as.POSIXct("2025-07-01 00:00:00")))
 
 plot_wind(MET_wind_q1, type = 'month', main = NULL)
 
@@ -406,13 +406,13 @@ plot_wind(MET_wind_q1, type = 'month', main = NULL)
 
 “King Tides” are the highest predicted tides of the year and in Northeast Florida, these typically occur during the fall and winter months. For the city of St. Augustine, these events often bring nuisance flooding in coastal and low-lying areas. For the estuary, this typically also means reduced tidal exchange, a lack of low tide events, and more and prolonged flooding in the intertidal wetlands. The city reports these events on their [website](https://www.citystaug.com/1032/King-Tide-Chart-Prediction).
 
-Predicted King Tide events in 2024 were:
+Predicted King Tide events in 2025 were:
 
--   January 11th-13th
--   September 16th-22nd
--   October 14th-23rd
--   November 13th-20th
--   December 12th-17th
+-   January 11th-14th
+<!-- -   September 16th-22nd -->
+<!-- -   October 14th-23rd -->
+<!-- -   November 13th-20th -->
+<!-- -   December 12th-17th -->
 
 
 The effects of the King Tides on daily average water depths were not observable in January, but there was a spike in water depths at all stations in February (@fig-range-depth).
@@ -432,13 +432,13 @@ Note that the water level data at Pellicer Creek only includes data from 2021–
 #|    - "Pellicer Creek"
 #| layout-ncol: 2
 
-historical_daily_range(pi, param = 'cdepth', target_yr = 2024)
+historical_daily_range(pi, param = 'cdepth', target_yr = 2025)
 
-historical_daily_range(ss, param = 'cdepth', target_yr = 2024)
+historical_daily_range(ss, param = 'cdepth', target_yr = 2025)
 
-historical_daily_range(fm, param = 'cdepth', target_yr = 2024)
+historical_daily_range(fm, param = 'cdepth', target_yr = 2025)
 
-historical_daily_range(pc, param = 'clevel', target_yr = 2024)
+historical_daily_range(pc, param = 'clevel', target_yr = 2025)
 ```
 
 ## Temperature anomalies
@@ -452,7 +452,7 @@ No freeze events were recorded this year.
 ```{r}
 #| label: fig-temp-anomalies
 #| echo: false
-#| fig.cap: Monthly temperature anomalies at GTMNERR Pellicer Creek weather station from 2002-2024
+#| fig.cap: Monthly temperature anomalies at GTMNERR Pellicer Creek weather station from 2002-2025
 
 refmean <-   MET %>% 
  aggreswmp(by = "days", params = c('atemp')) %>% # daily averages
@@ -473,7 +473,7 @@ ggplotly(
   left_join(monthly_means, by = "month") %>% 
   mutate(anomaly = atemp - monthly_mean) %>% 
   ggplot(aes(x = month, y = anomaly, group = year)) +
-  geom_line(aes(color = year == 2024, size = year == 2024), show.legend = F) +
+  geom_line(aes(color = year == 2025, size = year == 2025), show.legend = F) +
   geom_hline(yintercept = 0, color = "gray30") +
   scale_color_manual(values = c('gray', '#0075AC')) +
   scale_size_manual(values = c(1, 1.5)) +
@@ -482,7 +482,7 @@ ggplotly(
   labs(x = "",
        y = "Monthly temperature anomaly (\u00b0C)") +
   annotate("text",
-           label = "2024",
+           label = "2025",
            x = 'Feb',
            y = 4,
            color = '#0075AC')
@@ -517,7 +517,7 @@ MET %>%
   filter(month %in% c("Jun"))  %>%
   filter(totprcp > 0) %>%
     ggplot(aes(x = atemp, y = dew_pt)) +
-    geom_point(aes(size = totprcp, color = year >= 2024), alpha = 0.5) +
+    geom_point(aes(size = totprcp, color = year >= 2025), alpha = 0.5) +
     scale_size(range = c(1, 24), name="Total Precipitation (mm)") +
     geom_text(aes(label = year), size = 2) +
     facet_wrap(~month, ncol = 1) +
@@ -535,13 +535,13 @@ rm(fun_in, gtm_prcp)
 ```{r}
 #| label: fig-heatindex
 #| echo: false
-#| fig-cap: Hourly averaged heat index values recorded at the Pellicer Creek weather station in 2024 with values in excess of 113 degrees colored in red.
+#| fig-cap: Hourly averaged heat index values recorded at the Pellicer Creek weather station in 2025 with values in excess of 113 degrees colored in red.
 
 # Convert to 'heat index' from raw temperature. https://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml
 
 ggplotly(
 MET %>%
-  filter(datetimestamp >= as.POSIXct("2024-01-01 00:00")) %>%
+  filter(datetimestamp >= as.POSIXct("2025-01-01 00:00")) %>%
   aggreswmp(by = "hours") %>%
   select(datetimestamp, atemp, rh) %>%
   mutate(heat_index = weathermetrics::heat.index(t = atemp, rh = rh, temperature.metric = "celsius",
@@ -568,7 +568,7 @@ MET %>%
 #| tbl-cap: "Date and duration of temperatures over 90 degrees fahrenheit for greater than 2 hours at the Pellicer Creek weather station"
 # 
 MET %>%
-  filter(datetimestamp >= as.POSIXct("2024-01-01 00:00")) %>%
+  filter(datetimestamp >= as.POSIXct("2025-01-01 00:00")) %>%
   setstep() %>%
   threshold_identification(param = c('atemp'),
                            parameter_threshold = c(32.2),
