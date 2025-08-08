@@ -82,7 +82,7 @@ pc |>
 
 ```
 
-#Dissolved oxygen at Pine Island has been uncharacteristically low in the past two years.
+Dissolved oxygen at Pine Island has been uncharacteristically low in the past two years.
 
 ```{r}
 #| label: fig-do-pi
@@ -111,7 +111,7 @@ threshold_criteria_plot(pi, param = 'do_mgl', rng = c(2025, 2025),
 
 ```
 
-#Pellicer Creek is located within a waterbody with known impairments for dissolved oxygen, chlorophyll *a*, and fecal coliform bacteria. As such, this station frequently experiences low dissolved oxygen values, particularly in the summer months (@fig-do-pc).
+Pellicer Creek is located within a waterbody with known impairments for dissolved oxygen, chlorophyll *a*, and fecal coliform bacteria. As such, this station frequently experiences low dissolved oxygen values, particularly in the summer months (@fig-do-pc).
 
 ```{r}
 #| label: fig-do-pc
