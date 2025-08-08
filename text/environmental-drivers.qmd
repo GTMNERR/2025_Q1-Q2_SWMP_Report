@@ -406,7 +406,7 @@ plot_wind(MET_wind_q1, type = 'month', main = NULL)
 
 “King Tides” are the highest predicted tides of the year and in Northeast Florida, these typically occur during the fall and winter months. For the city of St. Augustine, these events often bring nuisance flooding in coastal and low-lying areas. For the estuary, this typically also means reduced tidal exchange, a lack of low tide events, and more and prolonged flooding in the intertidal wetlands. The city reports these events on their [website](https://www.citystaug.com/1032/King-Tide-Chart-Prediction).
 
-Predicted King Tide events in 2025 were:
+Predicted King Tide events in 2025 are:
 
 -   January 11th-14th
 <!-- -   September 16th-22nd -->
