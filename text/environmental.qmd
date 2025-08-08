@@ -266,7 +266,7 @@ boxplot_prcp <- ggplot(data = Monthly_PRCP,
       geom_boxplot(data = filter(Monthly_PRCP, Year < 2025), 
                    aes(fill = "2002-2024")) +
       geom_point(data = filter(Monthly_PRCP, Year == 2025), 
-                 aes(color = "2024"),
+                 aes(color = "2025"),
                  size = 4) +
       scale_x_discrete(limits = c('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')) +
       scale_color_manual(name = "", 
