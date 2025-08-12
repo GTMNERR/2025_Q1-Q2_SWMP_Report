@@ -55,7 +55,7 @@ Additionally, the wiped C/T sensor (SN: 20G104544) installed on Triton (SN: 13K1
 
 #### Chlorophyll Sensor Issues
 
-Look at hand-written notes. PC - June maybe had issue
+On May 29, 2025, Pelican (SN: 15E101699) stopped working at Pellicer Creek. Staff could not communicate with data sonde so all sensors were removed and placed onto another data sonde for post deployment procedures. All of the sensors registered on the other data sonde except for the total algae sensor (SN: 20C202353). Total algae sensor may not be functioning properly, further evaluation is needed.
 
 #### Dissolved Oxygen Sensor Issues
 
