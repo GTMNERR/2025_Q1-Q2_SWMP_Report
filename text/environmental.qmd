@@ -210,22 +210,22 @@ TopValues %>%
 #| echo: false
 #| fig.cap: Rainfall at the Pellicer Creek weather station.
 #| fig.subcap:
-#|    - "Total precipitation for September 2002-2024."
 #|    - "Monthly total precipitation 2002-2025."
 #|    - "Annual precipitation totals Jan 2002-Dec 2024."
-#|    - "Annual precipitation totals Jan 2002-Dec 2024."
+#|    #|    - "Total precipitation for September 2002-2024."
+#|    #|    - "Annual precipitation totals Jan 2002-Dec 2024."
 #| layout-ncol: 2
-## September Precip ----
-
-Monthly_PRCP %>%
-  filter(Month == "Sep", na.rm=TRUE) %>%
-  ggplot(aes(Year, totprcp)) +
-  geom_col(fill = "#0075AC") +
-  theme_classic() +
-  theme(axis.text = element_text(color = "black", size = 12), #angle=45, vjust=1, hjust=1),
-        axis.title.y = element_text(color = "black", size = 12)) +
-  #scale_x_date(date_labels = "%y") +
-  labs(title = "", x = "", y = "Precipitation (mm)")
+# ## September Precip ----
+# 
+# Monthly_PRCP %>%
+#   filter(Month == "Sep", na.rm=TRUE) %>%
+#   ggplot(aes(Year, totprcp)) +
+#   geom_col(fill = "#0075AC") +
+#   theme_classic() +
+#   theme(axis.text = element_text(color = "black", size = 12), #angle=45, vjust=1, hjust=1),
+#         axis.title.y = element_text(color = "black", size = 12)) +
+#   #scale_x_date(date_labels = "%y") +
+#   labs(title = "", x = "", y = "Precipitation (mm)")
 
 ## MONTHLY/YEAR ----
 
@@ -283,18 +283,18 @@ boxplot_prcp <- ggplot(data = Monthly_PRCP,
 
 # Plotting
 
-fun_in <- function(x) sum(x, na.rm = TRUE)
-
-MET |> 
-  filter(datetimestamp > '2003-01-01 00:15' & datetimestamp < '2025-01-01 00:00') %>%
-  aggreswmp(by = "years", FUN = fun_in, params = "totprcp") %>% 
-  ggplot(aes(datetimestamp, totprcp)) +
-  geom_col(fill = "#0075AC") +
-  theme_classic() +
-  theme(axis.text = element_text(color = "black", size = 12), #angle=45, vjust=1, hjust=1),
-        axis.title.y = element_text(color = "black", size = 12)) +
-  geom_text(aes(label = totprcp), vjust = -0.5, color = "black", size = 2) +
-  labs(title = "", x = "", y = "Precipitation (mm)")
+# fun_in <- function(x) sum(x, na.rm = TRUE)
+# 
+# MET |> 
+#   filter(datetimestamp > '2003-01-01 00:15' & datetimestamp < '2025-01-01 00:00') %>%
+#   aggreswmp(by = "years", FUN = fun_in, params = "totprcp") %>% 
+#   ggplot(aes(datetimestamp, totprcp)) +
+#   geom_col(fill = "#0075AC") +
+#   theme_classic() +
+#   theme(axis.text = element_text(color = "black", size = 12), #angle=45, vjust=1, hjust=1),
+#         axis.title.y = element_text(color = "black", size = 12)) +
+#   geom_text(aes(label = totprcp), vjust = -0.5, color = "black", size = 2) +
+#   labs(title = "", x = "", y = "Precipitation (mm)")
 
 #Another way
 
