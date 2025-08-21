@@ -17,7 +17,7 @@ editor_options:
 library(here)
 
 source(here::here('R', '00_loadpackages.R'))
-#source(here::here('R', '02.2_load_wrangle_WQ-and-MET.R'))
+source(here::here('R', '02.2_load_wrangle_WQ-and-MET.R'))
 
 load(here('output','data', 'MET.Rdata'))
 
@@ -35,11 +35,11 @@ There was one tropical cyclone, Hurricane Milton, that had direct impacts in the
 
 Northeast Florida felt the impacts of Hurricane Debby August 4-6, 2024, as Debby approached Steinhatchee, Florida as a Category 1 hurricane and moved across the state bringing heavy rain and strong winds. The area was impacted by another tropical cyclone, Hurricane Helene, in late September. Hurricane Helene made landfall in the Big Bend area of Florida as a Category 4 storm. Very strong winds and rain caused significant storm surges and flooding in Northeast Florida. The impacts of Hurricane Helene can be seen in our SWMP data from September 25–26, 2024; however, we did unfortunately experience intermittent battery and sensor malfunctions during the storm, leaving our data incomplete.
 
-The third storm of the season, Hurricane Milton, impacted the area on October 9-10, 2024. The major hurricane made landfall near Siesta Key on Wednesday, October 9, 2024, as a Category 3 storm. St. Augustine and St. Johns County experienced strong winds, heavy rains, and flooding Wednesday evening into Thursday. The strongest winds recorded at the GTMNERR weather station in 2024 were during Hurricane Milton. The strong winds were predominately from the east and the maximum wind speed was 26.1 m/s (58.4 mph) (@fig-winds-monthly). Strong winds initially raised salinity at all stations (@fig-range-sal)at the onset of the storm, however; the rainfall during the storm drastically decreased salinity as it made its way to this estuary, which was especially pronounced at Pellicer Creek (@fig-range-sal-4). 
+The third storm of the season, Hurricane Milton, impacted the area on October 9-10, 2024. The major hurricane made landfall near Siesta Key on Wednesday, October 9, 2024, as a Category 3 storm. St. Augustine and St. Johns County experienced strong winds, heavy rains, and flooding Wednesday evening into Thursday. The strongest winds recorded at the GTMNERR weather station in 2024 were during Hurricane Milton. The strong winds were predominately from the east and the maximum wind speed was 26.1 m/s (58.4 mph) (@fig-winds-monthly). Strong winds initially raised salinity at all stations (@fig-range-sal)at the onset of the storm, however; the rainfall during the storm drastically decreased salinity as it made its way to this estuary, which was especially pronounced at Pellicer Creek (@fig-range-sal-4).
 
 ## Nor'easters
 
-Typically, a Nor’easter is a storm along the East Coast of the United States with predominating winds from the northeast. These storms can last anywhere from a single day (24 hours) to several days or weeks. Callahan, Leathers, and Callahan @callahan2022 found that these events can produce surges just as severe as tropical cyclone events and occur more frequently. These events are often in the news associated with blizzards in the New England area of the US; however, their impacts to Northeast Florida, including higher water levels, heavy prevailing winds, precipitation, and reduced tidal exchange, can be significant. 
+Typically, a Nor’easter is a storm along the East Coast of the United States with predominating winds from the northeast. These storms can last anywhere from a single day (24 hours) to several days or weeks. Callahan, Leathers, and Callahan @callahan2022 found that these events can produce surges just as severe as tropical cyclone events and occur more frequently. These events are often in the news associated with blizzards in the New England area of the US; however, their impacts to Northeast Florida, including higher water levels, heavy prevailing winds, precipitation, and reduced tidal exchange, can be significant.
 
 Using duration of wind directions between 0-100 degrees for greater than 24-hrs at the Pellicer Creek weather station, 13 “Nor’easter” events were identified in 2024 (@tbl-neer). Occasionally, localized wind directions result in values outside of this 0-100 degree window. The longest Nor'easter event occurred October 16th - October 19th, lasting 74.5 hours (@fig-winds-long). This table does not identify wind strength during these events, just the time frames in which winds were originating and prevailing in the 0-100 degree directions (@fig-medianwspd).
 
@@ -57,33 +57,32 @@ storms <- readxl::read_xlsx(here::here('data',
                             sheet = "Sheet1") 
 
   kbl(storms, align = "c") %>%
-  kable_styling(fixed_thead = T, font_size = 12) #%>% 
-  #column_spec(8, border_left = F)
-
+  kable_styling(fixed_thead = T, font_size = 12) 
+ 
 ```
 
-```{r}
-#| label: tbl-neer
-#| echo: false
-#| tbl-cap: "Identification and Duration of Wind from 0-100 degrees for periods greater than 24 hours"
+<!--```{r} -->
+<!-- #| label: tbl-neer -->
+<!-- #| echo: false -->
+<!-- #| tbl-cap: "Identification and Duration of Wind from 0-100 degrees for periods greater than 24 hours" -->
 
 
-MET %>% 
-  filter(datetimestamp > "2024-01-01 00:00") %>% 
-  setstep() %>% 
-  threshold_identification(param = c('wdir'),
-                           parameter_threshold = c(100),
-                           threshold_type = c('<='),
-                           time_threshold = 24) %>% 
-  select(-parameter, -thr_violation, -statement) %>% 
-  rename(`Duration (hrs)` = duration,
-         `Start Time` = starttime,
-         `End Time` = endtime) %>% 
-  kbl(align = "c") %>%
-  kable_styling(fixed_thead = T) %>% 
-  column_spec(3, border_left = T)
+<!-- MET %>%  -->
+<!--   filter(datetimestamp > "2025-01-01 00:00") %>%  -->
+<!--   setstep() %>%  -->
+<!--   threshold_identification(param = c('wdir'), -->
+<!--                            parameter_threshold = c(100), -->
+<!--                            threshold_type = c('<='), -->
+<!--                            time_threshold = 24) %>%  -->
+<!--   select(-parameter, -thr_violation, -statement) %>%  -->
+<!--   rename(`Duration (hrs)` = duration, -->
+<!--          `Start Time` = starttime, -->
+<!--          `End Time` = endtime) %>%  -->
+<!--   kbl(align = "c") %>% -->
+<!--   kable_styling(fixed_thead = T) %>%  -->
+<!--   column_spec(3, border_left = T) -->
 
-```
+<!--``` -->
 
 ```{r}
 #| label: fig-medianwspd
@@ -117,118 +116,118 @@ MET %>%
        color = "Cardinal Direction")
 ```
 
-```{r}
-#| label: fig-windspeed-direction
-#| echo: false
-#| fig-cap: "Hourly wind speed and direction from the Pellicer Creek weather station during the timeperiod of the longest Noreaster observed at the station (Wednesday, October 16 - Saturday, October 19, 2024). The circles represent wind direction in degrees. All data is based upon 5 second maximum wind speed readings at the weather station."
-#| fig.subcap:
-#|    - "Hourly wind speed and direction"
-#| layout-ncol: 1
+<!--```{r} -->
+<!-- #| label: fig-windspeed-direction -->
+<!-- #| echo: false -->
+<!-- #| fig-cap: "Hourly wind speed and direction from the Pellicer Creek weather station during the timeperiod of the longest Noreaster observed at the station (Wednesday, October 16 - Saturday, October 19, 2024). The circles represent wind direction in degrees. All data is based upon 5 second maximum wind speed readings at the weather station." -->
+<!-- #| fig.subcap: -->
+<!-- #|    - "Hourly wind speed and direction" -->
+<!-- #| layout-ncol: 1 -->
 
-fun_in <- function(x) median(x, na.rm = TRUE)
-MET %>% 
-  filter(between(datetimestamp, 
-                 as.POSIXct("2024-10-16 00:00:00"), 
-                 as.POSIXct("2024-10-19 23:45:00"))) %>% 
-    aggreswmp(by = "hours", FUN = fun_in, params = c('wspd', 'maxwspd', 'wdir')) %>% 
-  #mutate(compass = cimir::cimis_degrees_to_compass(wdir)) %>%
-   #filter(wspd > 2.278 & maxwspd > 4.03469) %>%
-  ggplot(aes(x = datetimestamp, y = maxwspd, size = wdir, fill = Temp)) +
-  geom_point(shape = 21, colour = "#000000", fill = "#40b8d0" ) +
-  #gghighlight(compass %in% c('NNE', 'ENE'), use_direct_label = FALSE) +
-   #scale_x_date(date_breaks = "month", date_labels = "%b") +
-  ggthemes::scale_color_colorblind() +
-  theme_classic() +
-  theme(axis.text = element_text(color = "black")) +
-  labs(x = "",
-       y = "Average Hourly Wind Speed (m/s)",
-       size = "Wind Direction (Deg)")
-```
+<!-- fun_in <- function(x) median(x, na.rm = TRUE) -->
+<!-- MET %>%  -->
+<!--   filter(between(datetimestamp,  -->
+<!--                  as.POSIXct("2024-10-16 00:00:00"),  -->
+<!--                  as.POSIXct("2024-10-19 23:45:00"))) %>%  -->
+<!--     aggreswmp(by = "hours", FUN = fun_in, params = c('wspd', 'maxwspd', 'wdir')) %>%  -->
+<!--   #mutate(compass = cimir::cimis_degrees_to_compass(wdir)) %>% -->
+<!--    #filter(wspd > 2.278 & maxwspd > 4.03469) %>% -->
+<!--   ggplot(aes(x = datetimestamp, y = maxwspd, size = wdir, fill = Temp)) + -->
+<!--   geom_point(shape = 21, colour = "#000000", fill = "#40b8d0" ) + -->
+<!--   #gghighlight(compass %in% c('NNE', 'ENE'), use_direct_label = FALSE) + -->
+<!--    #scale_x_date(date_breaks = "month", date_labels = "%b") + -->
+<!--   ggthemes::scale_color_colorblind() + -->
+<!--   theme_classic() + -->
+<!--   theme(axis.text = element_text(color = "black")) + -->
+<!--   labs(x = "", -->
+<!--        y = "Average Hourly Wind Speed (m/s)", -->
+<!--        size = "Wind Direction (Deg)") -->
+<!-- ``` -->
 
-```{r}
-#| label: fig-winds-rose-long
-#| echo: false
-#| fig.cap: Daily wind speed and direction from the Pellicer Creek weather station during the timeperiod of the longest Noreaster observed at the station (Wednesday, October 16 - Saturday, October 19, 2024). All data is based upon 5 second averge wind speed readings.
-#| 
-#| fig.subcap:
-#|    - "Daily wind speeds"
-#| layout-ncol: 1
+<!-- ```{r} -->
+<!-- #| label: fig-winds-rose-long -->
+<!-- #| echo: false -->
+<!-- #| fig.cap: Daily wind speed and direction from the Pellicer Creek weather station during the timeperiod of the longest Noreaster observed at the station (Wednesday, October 16 - Saturday, October 19, 2024). All data is based upon 5 second averge wind speed readings. -->
+<!-- #|  -->
+<!-- #| fig.subcap: -->
+<!-- #|    - "Daily wind speeds" -->
+<!-- #| layout-ncol: 1 -->
 
-MET_wind_long <- MET %>%
-  filter(between(datetimestamp,
-                 as.POSIXct("2024-10-16 00:00:00"),
-                 as.POSIXct("2024-10-20 00:00:00")))
+<!-- MET_wind_long <- MET %>% -->
+<!--   filter(between(datetimestamp, -->
+<!--                  as.POSIXct("2024-10-16 00:00:00"), -->
+<!--                  as.POSIXct("2024-10-20 00:00:00"))) -->
 
-plot_wind(MET_wind_long, type = 'weekday', main = NULL, angle = 45, annotate = TRUE, grid.line = 15, max.freq = 80)
+<!-- plot_wind(MET_wind_long, type = 'weekday', main = NULL, angle = 45, annotate = TRUE, grid.line = 15, max.freq = 80) -->
 
-```
+<!--``` -->
 
-```{r}
-#| label: fig-winds-long
-#| echo: false
-#| fig.cap: Hourly wind speed and direction from the Pellicer Creek weather station during the timeperiod of the longest Noreaster observed at the station (Wednesday, October 16 - Saturday, October 19, 2024). The warmer the color, the higher the recorded wind speed. The arrows indicate the direction the wind was blowing towards and the length of the arrow reflects the wind speed information with longer meaning faster. All data is based upon 5 second readings at the weather station.
-#| fig.subcap:
-#|    - "Averaged hourly wind speeds"
-#|    - "Maximum wind gust recorded within each hour"
-#| layout-ncol: 2
+<!--```{r} -->
+<!-- #| label: fig-winds-long -->
+<!-- #| echo: false -->
+<!-- #| fig.cap: Hourly wind speed and direction from the Pellicer Creek weather station during the timeperiod of the longest Noreaster observed at the station (Wednesday, October 16 - Saturday, October 19, 2024). The warmer the color, the higher the recorded wind speed. The arrows indicate the direction the wind was blowing towards and the length of the arrow reflects the wind speed information with longer meaning faster. All data is based upon 5 second readings at the weather station. -->
+<!-- #| fig.subcap: -->
+<!-- #|    - "Averaged hourly wind speeds" -->
+<!-- #|    - "Maximum wind gust recorded within each hour" -->
+<!-- #| layout-ncol: 2 -->
 
-# helpful resources
-# https://stackoverflow.com/questions/47880918/how-to-plot-wind-direction-with-lat-lon-and-arrow-in-ggplot2 
-# https://stackoverflow.com/questions/49639881/how-to-get-a-legend-on-geom-spoke
+<!-- # helpful resources -->
+<!-- # https://stackoverflow.com/questions/47880918/how-to-plot-wind-direction-with-lat-lon-and-arrow-in-ggplot2  -->
+<!-- # https://stackoverflow.com/questions/49639881/how-to-get-a-legend-on-geom-spoke -->
 
-# create new df for just wspd and direction data with conversions to SI units
-MET_wind_long <- MET %>% 
-  filter(between(datetimestamp, 
-                 as.POSIXct("2024-10-16 01:00:00"), 
-                 as.POSIXct("2024-10-20 00:00:00"))) %>%
-  aggreswmp(by = "hours", params = c('wspd', 'maxwspd', 'wdir')) %>% 
-  mutate(day = lubridate::date(datetimestamp),
-         hour = lubridate::hour(datetimestamp),
-         wspd_mph = wspd * 2.23694,
-         maxwspd_mph = maxwspd * 2.23694,
-         wdir_x = wdir) #((wdir +180) * 0.0174533)) # angles are in radians not degrees, need to convert for plotting
+<!-- # create new df for just wspd and direction data with conversions to SI units -->
+<!-- MET_wind_long <- MET %>%  -->
+<!--   filter(between(datetimestamp,  -->
+<!--                  as.POSIXct("2024-10-16 01:00:00"),  -->
+<!--                  as.POSIXct("2024-10-20 00:00:00"))) %>% -->
+<!--   aggreswmp(by = "hours", params = c('wspd', 'maxwspd', 'wdir')) %>%  -->
+<!--   mutate(day = lubridate::date(datetimestamp), -->
+<!--          hour = lubridate::hour(datetimestamp), -->
+<!--          wspd_mph = wspd * 2.23694, -->
+<!--          maxwspd_mph = maxwspd * 2.23694, -->
+<!--          wdir_x = wdir) #((wdir +180) * 0.0174533)) # angles are in radians not degrees, need to convert for plotting -->
 
 
-MET_wind_long %>% 
-  filter(day > as.Date("2024-10-16")) %>% 
-  ggplot(aes(x = hour, 
-             y = day, 
-             fill = wspd_mph, 
-             angle = wdir_x, 
-             radius = scales::rescale(wspd_mph, c(.3, .8)))) +
-    geom_raster() +
-    geom_spoke(arrow = arrow(length = unit(.05, 'inches'))) + 
-    scale_fill_distiller(palette = "RdYlBu") + 
-    coord_equal(expand = 0) +
-    scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22)) +
-    theme_classic() +
-  theme(axis.text = element_text(color = "black", size = 12),
-        legend.position = 'top', 
-        legend.direction = 'horizontal') +
-  labs(x = "Hour of Day (24hr)",
-       y = "",
-       fill = "Wind Speed (mph)")
+<!-- MET_wind_long %>%  -->
+<!--   filter(day > as.Date("2024-10-16")) %>%  -->
+<!--   ggplot(aes(x = hour,  -->
+<!--              y = day,  -->
+<!--              fill = wspd_mph,  -->
+<!--              angle = wdir_x,  -->
+<!--              radius = scales::rescale(wspd_mph, c(.3, .8)))) + -->
+<!--     geom_raster() + -->
+<!--     geom_spoke(arrow = arrow(length = unit(.05, 'inches'))) +  -->
+<!--     scale_fill_distiller(palette = "RdYlBu") +  -->
+<!--     coord_equal(expand = 0) + -->
+<!--     scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22)) + -->
+<!--     theme_classic() + -->
+<!--   theme(axis.text = element_text(color = "black", size = 12), -->
+<!--         legend.position = 'top',  -->
+<!--         legend.direction = 'horizontal') + -->
+<!--   labs(x = "Hour of Day (24hr)", -->
+<!--        y = "", -->
+<!--        fill = "Wind Speed (mph)") -->
 
-MET_wind_long %>% 
-  filter(day < as.Date("2024-10-20")) %>% 
-  ggplot(aes(x = hour, 
-             y = day, 
-             fill = maxwspd_mph, 
-             angle = wdir_x, 
-             radius = scales::rescale(wspd_mph, c(.3, .8)))) +
-    geom_raster() +
-    geom_spoke(arrow = arrow(length = unit(.05, 'inches'))) + 
-    scale_fill_distiller(palette = "RdYlBu") + 
-    coord_equal(expand = 0) +
-    scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22)) +
-    theme_classic() +
-  theme(axis.text = element_text(color = "black", size = 12),
-        legend.position = 'top', 
-        legend.direction = 'horizontal') +
-  labs(x = "Hour of Day (24hr)",
-       y = "",
-       fill = "Max Wind Gusts (mph)")
-```
+<!-- MET_wind_long %>%  -->
+<!--   filter(day < as.Date("2024-10-20")) %>%  -->
+<!--   ggplot(aes(x = hour,  -->
+<!--              y = day,  -->
+<!--              fill = maxwspd_mph,  -->
+<!--              angle = wdir_x,  -->
+<!--              radius = scales::rescale(wspd_mph, c(.3, .8)))) + -->
+<!--     geom_raster() + -->
+<!--     geom_spoke(arrow = arrow(length = unit(.05, 'inches'))) +  -->
+<!--     scale_fill_distiller(palette = "RdYlBu") +  -->
+<!--     coord_equal(expand = 0) + -->
+<!--     scale_x_continuous(breaks = c(0,2,4,6,8,10,12,14,16,18,20,22)) + -->
+<!--     theme_classic() + -->
+<!--   theme(axis.text = element_text(color = "black", size = 12), -->
+<!--         legend.position = 'top',  -->
+<!--         legend.direction = 'horizontal') + -->
+<!--   labs(x = "Hour of Day (24hr)", -->
+<!--        y = "", -->
+<!--        fill = "Max Wind Gusts (mph)") -->
+<!-- ```-->
 
 ```{r}
 #| label: fig-winds-monthly
@@ -415,7 +414,7 @@ Predicted King Tide events in 2025 are:
 <!-- -   December 12th-17th -->
 
 
-The effects of the King Tides on daily average water depths were not observable in January, but there was a spike in water depths at all stations in February (@fig-range-depth).
+<!-- The effects of the King Tides on daily average water depths were not observable in January, but there was a spike in water depths at all stations in February (@fig-range-depth).-->
 
 ### Water Depth
 
