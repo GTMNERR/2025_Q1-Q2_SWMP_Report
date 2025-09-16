@@ -27,18 +27,18 @@ load(here('output','data', 'pc_wq.Rdata'))
 
 The following includes variables that establish the estuarine setting: rainfall, light intensity, water temperature, and salinity. These variables are driven primarily by climatic patterns and largely influence water quality, biological processes, and habitat condition.
 
-## Summary
+<!-- ## Summary -->
 <!-- Winter storm Finn (unofficially named) brought rainfall and strong winds in [January](https://www.actionnewsjax.com/news/local/strong-storm-cold-front-will-move-across-northeast-florida-southeast-georgia/DNJ3SOGJ35G4FCKJLPJNP67YZY/) to Northeast Florida causing some local schools to release students early and cancel after school activities (@fig-rainfall-1; @fig-rainfall-2). This event is discussed in further detail in the next chapter. -->
 
-Total measured rainfall in 2024 was 1347.2 mm (@fig-SeptPrecip-3). The third quarter of the year had the greatest rainfall total (@fig-rainfall) because of September, which had a record-setting high monthly total (@tbl-topRain; @fig-SeptPrecip-1; @fig-SeptPrecip-2). September also had the greatest number of rain days exceeding 10 mm/day (@Fig-rainfall-3), and more storms producing heavy rainfall (@Fig-rainfall-4). Rainfall totals for the fourth quarter of 2024 are incomplete, resulting from a computer program error. Data are missing beginning November 13, 2024, and continuing through the end of the year (see Maintenance Notes Section 8.2.2; @fig-SeptPrecip-4).
+<!-- Total measured rainfall in 2024 was 1347.2 mm (@fig-SeptPrecip-3). The third quarter of the year had the greatest rainfall total (@fig-rainfall) because of September, which had a record-setting high monthly total (@tbl-topRain; @fig-SeptPrecip-1; @fig-SeptPrecip-2). September also had the greatest number of rain days exceeding 10 mm/day (@Fig-rainfall-3), and more storms producing heavy rainfall (@Fig-rainfall-4). Rainfall totals for the fourth quarter of 2024 are incomplete, resulting from a computer program error. Data are missing beginning November 13, 2024, and continuing through the end of the year (see Maintenance Notes Section 8.2.2; @fig-SeptPrecip-4). -->
 
-Light intensity was highest from April to August. December had the lowest mid-day photosynthetically active radiation (PAR) (@fig-lightintensity).
+<!-- Light intensity was highest from April to August. December had the lowest mid-day photosynthetically active radiation (PAR) (@fig-lightintensity). -->
 
-Daily average air temperatures were highest from June - August, and most variable during January – April and November – December (@fig-range-atemp).
+<!-- Daily average air temperatures were highest from June - August, and most variable during January – April and November – December (@fig-range-atemp). -->
 
-While there were some low water temperatures throughout the year, daily average water temperatures were generally higher than average (@fig-range-temp). Water temperature decreased in August and September with the onset of the large rain events causing water temperatures to fall below the historic average daily range at all four stations (@fig-range-temp-2; @fig-range-temp-3). Water temperatures increased at all four stations in November nearing the historic 2002-2024 maximum daily range  (@fig-range-temp).
+<!-- While there were some low water temperatures throughout the year, daily average water temperatures were generally higher than average (@fig-range-temp). Water temperature decreased in August and September with the onset of the large rain events causing water temperatures to fall below the historic average daily range at all four stations (@fig-range-temp-2; @fig-range-temp-3). Water temperatures increased at all four stations in November nearing the historic 2002-2024 maximum daily range  (@fig-range-temp). -->
 
-Rainfall in January and September – November brought salinity levels lower than their average daily ranges (@fig-range-sal), particularly at the stations farthest from the inlets (@fig-range-sal-1; @fig-range-sal-4). However, the drought conditions during spring increased salinity levels. Salinity stayed higher than the average daily range at all stations through July, but was most pronounced at Pine Island (@fig-range-sal-1). 
+<!-- Rainfall in January and September – November brought salinity levels lower than their average daily ranges (@fig-range-sal), particularly at the stations farthest from the inlets (@fig-range-sal-1; @fig-range-sal-4). However, the drought conditions during spring increased salinity levels. Salinity stayed higher than the average daily range at all stations through July, but was most pronounced at Pine Island (@fig-range-sal-1).  -->
 
 ## Data
 
